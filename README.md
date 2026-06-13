@@ -1,5 +1,5 @@
 <p align="center">
-  <img align="right" src="https://github-readme-stats.vercel.app/api/top-langs?username=chippleh1392&count_private=true&langs_count=10&layout=compact" />
+  <img align="right" src="./profile/top-langs.svg" alt="Most used languages" />
   Hello, my name is Cristofer Hippleheuser. I like to build thoughtful front-end experiences.
   <br /><br />
   I'm a senior frontend developer focused on React, TypeScript, and accessible product UI. I also contribute to open source in the Shopify and web platform ecosystem.
