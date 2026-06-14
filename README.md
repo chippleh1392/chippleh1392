@@ -1,10 +1,10 @@
 Hello, my name is Cristofer Hippleheuser. I like to build things.
 
-<table>
+<table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td valign="top"><img alt="GitHub stats" src="./profile/stats.svg" /></td>
-    <td width="12"></td>
-    <td valign="top"><img alt="Most used languages" src="./profile/top-langs.svg" /></td>
+    <td valign="top" border="0"><img alt="GitHub stats" src="./profile/stats.svg" /></td>
+    <td width="12" border="0"></td>
+    <td valign="top" border="0"><img alt="Most used languages" src="./profile/top-langs.svg" /></td>
   </tr>
 </table>
 
