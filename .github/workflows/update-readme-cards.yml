@@ -31,22 +31,6 @@ jobs:
           path: profile/top-langs.svg
           token: ${{ secrets.GRS_PAT }}
 
-      - name: Generate studio-pulse-demo pin card
-        uses: readme-tools/github-readme-stats-action@v1
-        with:
-          card: pin
-          options: username=${{ github.repository_owner }}&repo=studio-pulse-demo
-          path: profile/pin-studio-pulse-demo.svg
-          token: ${{ secrets.GRS_PAT }}
-
-      - name: Generate astro-redundant-roles-repro pin card
-        uses: readme-tools/github-readme-stats-action@v1
-        with:
-          card: pin
-          options: username=${{ github.repository_owner }}&repo=astro-redundant-roles-repro
-          path: profile/pin-astro-redundant-roles-repro.svg
-          token: ${{ secrets.GRS_PAT }}
-
       - name: Commit cards
         run: |
           git config user.name "github-actions[bot]"
