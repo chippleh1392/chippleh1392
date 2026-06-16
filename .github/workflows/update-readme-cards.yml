@@ -23,6 +23,39 @@ jobs:
           path: profile/stats.svg
           token: ${{ secrets.GRS_PAT }}
 
+      - name: Patch commits count to include private repos
+        env:
+          GH_TOKEN: ${{ secrets.GRS_PAT }}
+        run: |
+          SINCE=$(date -u -d '365 days ago' +%Y-%m-%d)
+          COUNT=$(gh api "search/commits?q=author:${{ github.repository_owner }}+author-date:>=${SINCE}" \
+            -H "Accept: application/vnd.github.cloak-preview+json" \
+            --jq '.total_count')
+          export COUNT
+          python << 'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          count = os.environ["COUNT"]
+          svg_path = Path("profile/stats.svg")
+          svg = svg_path.read_text(encoding="utf-8")
+
+          svg = re.sub(
+              r'(data-testid="commits"\s*\n\s*>)\d+(</text>)',
+              rf"\g<1>{count}\2",
+              svg,
+          )
+          svg = re.sub(
+              r"Total Commits\s+\(last year\) : \d+",
+              f"Total Commits  (last year) : {count}",
+              svg,
+          )
+
+          svg_path.write_text(svg, encoding="utf-8")
+          print(f"Patched commit count to {count}")
+          PY
+
       - name: Generate top languages card
         uses: readme-tools/github-readme-stats-action@v1
         with:
